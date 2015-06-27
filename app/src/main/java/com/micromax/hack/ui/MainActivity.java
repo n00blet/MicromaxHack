@@ -25,7 +25,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.Properties;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -79,42 +81,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String filePath = mFilePath.getText().toString().trim();
         switch (view.getId()){
             case R.id.choose_file:
                 showChooser();
                 break;
             case R.id.upload_file:
-                uploadFileToServer();
+                uploadFileToServer(filePath);
                 break;
         }
     }
 
-    private void uploadFileToServer() {
-
+    private void uploadFileToServer(String filePath) {
+        Log.d("Path",":" + filePath);
+        File file = new File(filePath) ;
         HashMap<String,String> paramMap = new HashMap<>();
-        paramMap.put("file","file");
+        paramMap.put("loginid","mani");
+        paramMap.put("srcfilepath",filePath);
         RequestParams params = new RequestParams(paramMap);
+        try{
+            params.put("fileContent",file);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        Log.d("File params",":" + params);
         RestClient.post(Constants.FILE_UPLOAD,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                if(response!=null){
-
-                }
+               Log.d("Array",":" + response);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                if(response!=null){
-                    try {
-                        String date = response.getString("date");
-                    }catch (JSONException e){
-                        e.printStackTrace();
-                    }
-                }
+                Log.d("Object",":" + response);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                Log.d("Success", ":" + responseString);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Failure", ":" + responseString);
                 Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
             }
         });
