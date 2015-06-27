@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MicromaxHack</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="chooser_title">Lorem ipsum</string>
+    <string name="internal_storage">Internal storage</string>
+    <string name="choose_file">Select a file</string>
+</resources>
