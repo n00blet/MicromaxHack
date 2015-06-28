@@ -2,6 +2,7 @@ package com.micromax.hack.network;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 /**
@@ -19,4 +20,4 @@ public class RestClient {
         client.post(url, params, responseHandler);
     }
 
-}
+    }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/senderId"
+        android:inputType="text"
+        android:hint="Sender Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/time"
+        android:inputType="number"
+        android:maxLength="2"
+        android:layout_below="@+id/senderId"
+        android:hint="Expire After x minutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp" />
+
+    <Button
+        android:id="@+id/dialogButtonOK"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text=" Share "
+        android:layout_below="@+id/time" />
+
+    <Button
+        android:id="@+id/dialogCancelOK"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text=" Cancel"
+        android:layout_below="@+id/time"
+        android:layout_alignRight="@id/time"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -63,7 +63,6 @@ mLogin.setOnClickListener(this);
     }
 
     private void authenticateUser(String email, String password) {
-
         HashMap<String,String> paramMap = new HashMap<>();
         paramMap.put("email",email);
         paramMap.put("name","Rakshith");
